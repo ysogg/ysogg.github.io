@@ -7,11 +7,11 @@ var wy_orig;
 
 var hoveredWin = null;
 var mousePos;
-var offset = [0,0];
-var div;
 var mouseDown = false;
 var hoveredWin = false;
 var movingWindow = false;
+
+var titlebar_additions = "<span class='wp-bar-fake'></span>"; // temp
 
 function addListeners() {
     document.addEventListener("mousedown", function (e) {
@@ -39,23 +39,19 @@ function addListeners() {
     document.addEventListener("mouseup", function () {
         mouseDown = false;
         if (movingWindow) {
-            let el = hoveredWin;
-            if (el == null) {
-                return;
-            }
-            // movingWindowReset();
-            // movingWindowDetect(el);
+            let element = hoveredWin;
+            if (element == null) return;
+            windowReset();
+            detectWindow(element)
         }
     }, false)
 
-    document.addEventListener("mousemove", function (e) {
+    document.addEventListener("mousemove", function (e) { // e =>
         mx = e.pageX;
         my = e.pageY;
 
         if (movingWindow) {
-            if (!hoveredWin) {
-                return;
-            }
+            if (!hoveredWin) return;
 
             let newTop = (+(e.pageY - my_orig) + wy_orig);
             let newLeft = (+(e.pageX - mx_orig) + wx_orig);
@@ -74,6 +70,42 @@ function addListeners() {
     }, false)
 }
 
+function getWindows() {
+    return Array.from(document.querySelectorAll(".window"));
+}
+
+function detectWindow(element) {
+    if (element == null) return;
+
+    if (element.classList.contains("window")) {
+        hoveredWin = element;
+        let windows = getWindows();
+
+        //disallow other windows from being selected
+        for (const curr of windows) {
+            if (curr != hoveredWin) {
+                curr.style.pointerEvents = 'none';
+                curr.style.userSelect = 'none';
+                curr.style.zIndex = '0';
+            }
+        }
+    }
+    
+}
+
+function windowReset() {
+    movingWIndow = false;
+    hoveredWin = null;
+
+    var windows = getWindows();
+    for(const curr of windows) {
+        if (curr != hoveredWin) {
+            curr.style.pointerEvents = 'initial';
+            curr.style.userSelect = 'initial';
+        }
+    }
+}
+
 class Window {
 
     constructor() {
@@ -84,7 +116,6 @@ class Window {
 //Create window and add to DOM
 function addWindowToDOM(win) {
 
-
     var div = document.createElement("div");
     div.style.position = "absolute";
     div.style.left = "150px";
@@ -93,12 +124,32 @@ function addWindowToDOM(win) {
     div.style.height = "500px";
     div.style.background = "gray";
     div.style.color = "blue";
-
-    // var windowDrag = document.createElement("span");
-    // windowDrag.classList.add("window-drag");
-    // div.appendChild(windowDrag);
+    div.classList.add("window");
+    
+    div.innerHTML += `
+    <span class="titlebar">
+        <span class='tl_lines', style="width:100px"></span>
+        <span class="title">`+ "Window Title" + `</span>
+        </span>
+        `;
+    div.innerHTML += titlebar_additions
 
     document.body.appendChild(div);
+
+    div.querySelector(".titlebar")?.addEventListener("mouseenter", (e) => {
+        let target = e.target;
+        if (target == null) return;
+
+        let parentElement = target.parentElement;
+        if (parentElement == null) return;
+        detectWindow(parentElement);
+    });
+
+    div.querySelector(".titlebar")?.addEventListener("mouseleave", (e) => {
+        if (!movingWindow) {
+            windowReset();
+        }
+    });
     
 }
 
