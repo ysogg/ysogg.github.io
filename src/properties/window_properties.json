@@ -3,38 +3,48 @@
         "page": "main",
         "title": "MAIN WINDOW",
         "type": "textdoc",
-        "width": "250px",
-        "height": "500px",
-        "left": "400px",
-        "top": "50px"
+        "width": "900px",
+        "height": "910px",
+        "left": "475px",
+        "top": "25px"
     },
     {
-        "page": "languages",
-        "title": "LEFT WINDOW",
+        "page": "stats",
+        "title": "LEFT WINDOW TOP",
         "type": "textdoc",
-        "width": "250px",
-        "height": "400px",
+        "width": "350px",
+        "height": "200px",
         "left": "100px",
         "top": "50px"
 
     },
     {
-        "page": "stats",
-        "title": "LEFT WINDOW LOW",
+        "page": "languages",
+        "title": "LEFT WINDOW MID",
         "type": "textdoc",
-        "width": "250px",
+        "width": "350px",
         "height": "200px",
         "left": "100px",
-        "top": "500px"
+        "top": "280px"
+
+    },
+    {
+        "page": "repos",
+        "title": "LEFT WINDOW LOW",
+        "type": "textdoc",
+        "width": "350px",
+        "height": "400px",
+        "left": "100px",
+        "top": "510px"
 
     },
     {
         "page": "right",
         "title": "RIGHT WINDOW",
         "type": "textdoc",
-        "width": "250px",
-        "height": "500px",
-        "left": "700px",
-        "top": "50px"
+        "width": "350px",
+        "height": "600px",
+        "left": "1400px",
+        "top": "150px"
     }]
 }
