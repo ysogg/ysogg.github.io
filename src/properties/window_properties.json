@@ -1,0 +1,9 @@
+{
+    "MainWindow": {
+        "type": "textdoc"
+    },
+
+    "VideoFolder": {
+        "type": "folder"
+    }
+}
