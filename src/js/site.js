@@ -107,9 +107,13 @@ function windowReset() {
 }
 
 class Window {
+    constructor(properties) {
+        this.title = properties.title;
+        this.width = properties.width;
+        this.height = properties.height;
 
-    constructor() {
 
+        this.page = properties.page;
     }
 }
 
@@ -120,8 +124,10 @@ function addWindowToDOM(win) {
     div.style.position = "absolute";
     div.style.left = "150px";
     div.style.top = "0px";
-    div.style.width = "350px";
-    div.style.height = "500px";
+    // div.style.width = "350px";
+    div.style.width = win.width;
+    // div.style.height = "500px";
+    div.style.height = win.height;
     div.style.background = "gray";
     div.style.color = "blue";
     div.classList.add("window");
@@ -129,7 +135,7 @@ function addWindowToDOM(win) {
     div.innerHTML += `
     <span class="titlebar">
         <span class='tl_lines', style="width:100px"></span>
-        <span class="title">`+ "Window Title" + `</span>
+        <span class="title">`+ win.title + `</span>
         </span>
         `;
     div.innerHTML += titlebar_additions
@@ -165,22 +171,36 @@ function addWindowToDOM(win) {
  * - If it is then we can set hoveredWin to true and it should work from there
 */
 
-
-// initial_windows is an array which is then iterated over to create multiple divs in one quick go
-// each should be opf the Window class
-
-
 function main() {
     addListeners();
 
-    let initial_windows = [
-        new Window("center"),
-        new Window("left")
-    ];
-    
-    initial_windows.forEach(win => {
-        addWindowToDOM(win);
+    fetch('./src/properties/window_properties.json')
+    .then((res) => {
+        return res.json();
     })
+    .then((data) => {
+        const windowList = JSON.parse(JSON.stringify(data));
+        console.log(windowList.windows);
+
+        var initial_windows = [];
+
+        windowList.windows.forEach(windowProperties => {
+            initial_windows.push(new Window(windowProperties));
+            console.log(initial_windows);
+        })
+
+        initial_windows.forEach(win => {
+            addWindowToDOM(win);
+        })
+    })
+    // let initial_windows = [
+    //     new Window("mainWindow"),
+    //     new Window("left")
+    // ];
+    
+    // initial_windows.forEach(win => {
+    //     addWindowToDOM(win);
+    // })
 }
 
 try {

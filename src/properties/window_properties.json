@@ -1,9 +1,24 @@
 {
-    "MainWindow": {
-        "type": "textdoc"
+    "windows": [{
+        "page": "main",
+        "title": "MAIN WINDOW",
+        "type": "textdoc",
+        "width": "250px",
+        "height": "500px"
     },
+    {
+        "page": "left",
+        "title": "LEFT WINDOW",
+        "type": "textdoc",
+        "width": "250px",
+        "height": "500px"
 
-    "VideoFolder": {
-        "type": "folder"
-    }
+    },
+    {
+        "page": "right",
+        "title": "RIGHT WINDOW",
+        "type": "textdoc",
+        "width": "250px",
+        "height": "500px"
+    }]
 }
