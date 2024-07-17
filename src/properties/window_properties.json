@@ -4,14 +4,28 @@
         "title": "MAIN WINDOW",
         "type": "textdoc",
         "width": "250px",
-        "height": "500px"
+        "height": "500px",
+        "left": "400px",
+        "top": "50px"
     },
     {
-        "page": "left",
+        "page": "languages",
         "title": "LEFT WINDOW",
         "type": "textdoc",
         "width": "250px",
-        "height": "500px"
+        "height": "400px",
+        "left": "100px",
+        "top": "50px"
+
+    },
+    {
+        "page": "stats",
+        "title": "LEFT WINDOW LOW",
+        "type": "textdoc",
+        "width": "250px",
+        "height": "200px",
+        "left": "100px",
+        "top": "500px"
 
     },
     {
@@ -19,6 +33,8 @@
         "title": "RIGHT WINDOW",
         "type": "textdoc",
         "width": "250px",
-        "height": "500px"
+        "height": "500px",
+        "left": "700px",
+        "top": "50px"
     }]
 }

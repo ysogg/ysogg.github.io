@@ -111,6 +111,8 @@ class Window {
         this.title = properties.title;
         this.width = properties.width;
         this.height = properties.height;
+        this.left = properties.left;
+        this.top = properties.top;
 
 
         this.page = properties.page;
@@ -122,11 +124,9 @@ function addWindowToDOM(win) {
 
     var div = document.createElement("div");
     div.style.position = "absolute";
-    div.style.left = "150px";
-    div.style.top = "0px";
-    // div.style.width = "350px";
+    div.style.left = win.left;
+    div.style.top = win.top;
     div.style.width = win.width;
-    // div.style.height = "500px";
     div.style.height = win.height;
     div.style.background = "gray";
     div.style.color = "blue";
