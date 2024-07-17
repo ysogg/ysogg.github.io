@@ -94,7 +94,7 @@ function detectWindow(element) {
 }
 
 function windowReset() {
-    movingWIndow = false;
+    movingWindow = false;
     hoveredWin = null;
 
     var windows = getWindows();
