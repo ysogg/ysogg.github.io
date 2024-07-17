@@ -180,27 +180,16 @@ function main() {
     })
     .then((data) => {
         const windowList = JSON.parse(JSON.stringify(data));
-        console.log(windowList.windows);
-
         var initial_windows = [];
 
         windowList.windows.forEach(windowProperties => {
             initial_windows.push(new Window(windowProperties));
-            console.log(initial_windows);
         })
 
         initial_windows.forEach(win => {
             addWindowToDOM(win);
         })
     })
-    // let initial_windows = [
-    //     new Window("mainWindow"),
-    //     new Window("left")
-    // ];
-    
-    // initial_windows.forEach(win => {
-    //     addWindowToDOM(win);
-    // })
 }
 
 try {
