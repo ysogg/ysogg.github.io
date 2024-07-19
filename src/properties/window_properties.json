@@ -15,7 +15,8 @@
         "width": "350px",
         "height": "200px",
         "left": "100px",
-        "top": "50px"
+        "top": "50px",
+        "link": "./src/pages/stats.txt"
 
     },
     {

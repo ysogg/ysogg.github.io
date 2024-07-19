@@ -114,7 +114,12 @@ class Window {
         this.left = properties.left;
         this.top = properties.top;
 
-
+        if (properties.link != null) {
+            this.link = properties.link;
+        } else {
+            this.link = null;
+        }
+        
         this.page = properties.page;
     }
 }
@@ -139,6 +144,20 @@ function addWindowToDOM(win) {
         </span>
         `;
     div.innerHTML += titlebar_additions
+
+    // Rough proof of concept
+    // Eventually this should be its own function
+    // Also switch up json to have a sub object that contains window type, link, and other misc info that isn't style properties
+    var contents = document.createElement("span");
+    contents.classList.add("content");
+    if (win.link != null) {
+        fetch(win.link)
+        .then((info) => info.text())
+        .then(info => {
+            contents.innerHTML = info;
+        })
+    }
+    div.appendChild(contents);
 
     document.body.appendChild(div);
 
