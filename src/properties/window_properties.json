@@ -26,7 +26,8 @@
         "width": "350px",
         "height": "200px",
         "left": "100px",
-        "top": "280px"
+        "top": "280px",
+        "link": "./src/pages/langs.txt"
 
     },
     {
