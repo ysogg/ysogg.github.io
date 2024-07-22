@@ -128,7 +128,6 @@ class Window {
 function addWindowToDOM(win) {
 
     var div = document.createElement("div");
-    div.style.position = "absolute";
     div.style.left = win.left;
     div.style.top = win.top;
     div.style.width = win.width;

@@ -3,19 +3,19 @@
         "page": "main",
         "title": "MAIN WINDOW",
         "type": "textdoc",
-        "width": "900px",
-        "height": "910px",
-        "left": "475px",
-        "top": "25px"
+        "width": "40%",
+        "height": "90%",
+        "left": "30%",
+        "top": "5%"
     },
     {
         "page": "stats",
         "title": "LEFT WINDOW TOP",
         "type": "textdoc",
-        "width": "350px",
-        "height": "200px",
-        "left": "100px",
-        "top": "50px",
+        "width": "20%",
+        "height": "20%",
+        "left": "5%",
+        "top": "10%",
         "link": "./src/pages/stats.txt"
 
     },
@@ -23,10 +23,10 @@
         "page": "languages",
         "title": "LEFT WINDOW MID",
         "type": "textdoc",
-        "width": "350px",
-        "height": "200px",
-        "left": "100px",
-        "top": "280px",
+        "width": "20%",
+        "height": "30%",
+        "left": "5%",
+        "top": "35%",
         "link": "./src/pages/langs.txt"
 
     },
@@ -34,19 +34,19 @@
         "page": "repos",
         "title": "LEFT WINDOW LOW",
         "type": "textdoc",
-        "width": "350px",
-        "height": "400px",
-        "left": "100px",
-        "top": "510px"
+        "width": "20%",
+        "height": "20%",
+        "left": "5%",
+        "top": "70%"
 
     },
     {
         "page": "right",
         "title": "RIGHT WINDOW",
         "type": "textdoc",
-        "width": "350px",
-        "height": "600px",
-        "left": "1400px",
-        "top": "150px"
+        "width": "20%",
+        "height": "50%",
+        "left": "75%",
+        "top": "30%"
     }]
 }

@@ -1,4 +1,19 @@
-.stats {
+body {
+    height: 100%;
+    display: block;
+    padding-left: 30px;
+    margin: auto auto;
+}
+
+.window {
+    position: absolute;
+    display: block;
+    padding: 3px;
+    min-width: 1px;
+    overflow: hidden;
+}
+
+.content img {
     max-width: 100%;
     height: auto;
 }
