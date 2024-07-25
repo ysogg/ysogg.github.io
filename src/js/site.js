@@ -70,6 +70,16 @@ function addListeners() {
     }, false)
 }
 
+//Toggle window visibility
+function toggleWindow(winName) {
+    var win = document.getElementById(winName)
+    if (win.style.display == "none") {
+        win.style.display = "block";
+    } else {
+        win.style.display = "none";
+    }
+}
+
 function getWindows() {
     return Array.from(document.querySelectorAll(".window"));
 }
@@ -114,10 +124,16 @@ class Window {
         this.left = properties.left;
         this.top = properties.top;
 
-        if (properties.link != null) {
+        if (properties.data.link != null) {
             this.link = properties.link;
         } else {
             this.link = null;
+        }
+
+        if (properties.data.initialView == "hidden") {
+            this.display = "none";
+        } else {
+            this.display = "block";
         }
         
         this.page = properties.page;
@@ -128,6 +144,8 @@ class Window {
 function addWindowToDOM(win) {
 
     var div = document.createElement("div");
+    div.id = win.page;
+    div.style.display = win.display;
     div.style.left = win.left;
     div.style.top = win.top;
     div.style.width = win.width;
@@ -176,18 +194,6 @@ function addWindowToDOM(win) {
     });
     
 }
-
-// NOTES
-/* addWindowToDOM
- * - Should initialise everything about the window
- * - Creates div, appends child to body, etc..
-*/
-
-
-/* detectWindow
- * - When moust enters titlebar of window (set up in addWindowToDOM) need to check if it's a moveable window
- * - If it is then we can set hoveredWin to true and it should work from there
-*/
 
 function main() {
     addListeners();
