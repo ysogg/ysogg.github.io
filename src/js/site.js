@@ -11,6 +11,8 @@ var mouseDown = false;
 var hoveredWin = false;
 var movingWindow = false;
 
+var windowList = "";
+
 var titlebar_additions = "<span class='wp-bar-fake'></span>"; // temp
 
 function addListeners() {
@@ -68,6 +70,17 @@ function addListeners() {
             }
         }
     }, false)
+}
+
+function createWindow(name) {
+    var index = windowList.windows.findIndex(win => win.page == name);
+
+    if (index != -1) {
+        var properties = windowList.windows[index];
+        newWin = new Window(properties);
+        addWindowToDOM(newWin);
+        toggleWindow(name);
+    }
 }
 
 //Toggle window visibility
@@ -203,7 +216,7 @@ function main() {
         return res.json();
     })
     .then((data) => {
-        const windowList = JSON.parse(JSON.stringify(data));
+        windowList = JSON.parse(JSON.stringify(data));
         var initial_windows = [];
 
         windowList.windows.forEach(windowProperties => {
@@ -211,7 +224,10 @@ function main() {
         })
 
         initial_windows.forEach(win => {
-            addWindowToDOM(win);
+            if (win.display == "block") {
+                addWindowToDOM(win);
+            }
+            
         })
     })
 }
