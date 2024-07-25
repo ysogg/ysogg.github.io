@@ -73,6 +73,7 @@ function addListeners() {
 }
 
 function createWindow(name) {
+    if (document.getElementById(name)) { return; }
     var index = windowList.windows.findIndex(win => win.page == name);
 
     if (index != -1) {
@@ -81,6 +82,10 @@ function createWindow(name) {
         addWindowToDOM(newWin);
         toggleWindow(name);
     }
+}
+
+function removeWindow(name) {
+    //todo
 }
 
 //Toggle window visibility
