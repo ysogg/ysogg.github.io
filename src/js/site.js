@@ -125,7 +125,7 @@ class Window {
         this.top = properties.top;
 
         if (properties.data.link != null) {
-            this.link = properties.link;
+            this.link = properties.data.link;
         } else {
             this.link = null;
         }
