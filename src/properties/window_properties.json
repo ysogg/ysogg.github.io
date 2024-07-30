@@ -3,9 +3,9 @@
         "page": "main",
         "title": "MAIN WINDOW",
         "width": "40%",
-        "height": "90%",
+        "height": "85%",
         "left": "30%",
-        "top": "5%",
+        "top": "10%",
         "data": {
             "type": "textdoc",
             "initialView": "visible"
@@ -14,10 +14,10 @@
     {
         "page": "stats",
         "title": "LEFT WINDOW TOP",
-        "width": "20%",
+        "width": "18%",
         "height": "20%",
-        "left": "5%",
-        "top": "10%",
+        "left": "10%",
+        "top": "12%",
         "data": {
             "type": "textdoc",
             "initialView": "visible",
@@ -27,9 +27,9 @@
     {
         "page": "languages",
         "title": "LEFT WINDOW MID",
-        "width": "20%",
-        "height": "30%",
-        "left": "5%",
+        "width": "18%",
+        "height": "22%",
+        "left": "10%",
         "top": "35%",
         "data": {
             "type": "textdoc",
@@ -40,10 +40,10 @@
     {
         "page": "repos",
         "title": "LEFT WINDOW LOW",
-        "width": "20%",
-        "height": "20%",
-        "left": "5%",
-        "top": "70%",
+        "width": "18%",
+        "height": "34%",
+        "left": "10%",
+        "top": "60%",
         "data": {
             "type": "textdoc",
             "initialView": "visible"
@@ -54,7 +54,7 @@
         "title": "RIGHT WINDOW",
         "width": "20%",
         "height": "50%",
-        "left": "75%",
+        "left": "72%",
         "top": "30%",
         "data": {
             "type": "textdoc",
@@ -67,7 +67,7 @@
         "width": "55%",
         "height": "50%",
         "left": "20%",
-        "top": "5%",
+        "top": "10%",
         "data": {
             "type": "folder",
             "initialView": "hidden"
