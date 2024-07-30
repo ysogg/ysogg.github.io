@@ -21,6 +21,7 @@ function addListeners() {
         // if (e.leftclick != 1) { return; }
         mouseDown = true;
         if (hoveredWin) {
+            // createOutline(hoveredWin.style.width, hoveredWin.style.height, hoveredWin.style.left, hoveredWin.style.top);
             mx_orig = e.pageX; my_orig = e.pageY;
             let ex = hoveredWin.style.left;
             let ey = hoveredWin.style.top;
@@ -40,12 +41,14 @@ function addListeners() {
 
     document.addEventListener("mouseup", function () {
         mouseDown = false;
+        removeWindow("outline");
         if (movingWindow) {
             let element = hoveredWin;
             if (element == null) return;
             windowReset();
             detectWindow(element)
         }
+        
     }, false)
 
     document.addEventListener("mousemove", function (e) { // e =>
@@ -61,6 +64,7 @@ function addListeners() {
             hoveredWin.style.top = newTop + "px";
             hoveredWin.style.left = newLeft + "px";
 
+            //should only change zindex when window is selectedd not hovered over
             hoveredWin.style.zIndex = "999";
         } else {
             if (mouseDown) {
@@ -85,7 +89,31 @@ function createWindow(name) {
 }
 
 function removeWindow(name) {
-    //todo
+    try {
+        const element = document.getElementById(name);
+        element.remove();
+    } catch (e) {
+        return;
+    }
+}
+
+function createOutline(width, height, left, top) {
+    if (document.getElementById("outline")) { return; }
+    var index = windowList.windows.findIndex(win => win.page == "outline");
+    var properties = windowList.windows[index];
+
+    win = new Window(properties);
+
+    var div = document.createElement("div");
+    div.id = win.page;
+    div.style.display = "block";
+    div.style.width = width;
+    div.style.height = height;
+    div.style.left = left;
+    div.style.top = top;
+    div.classList.add("outline");
+
+    document.body.appendChild(div);
 }
 
 //Toggle window visibility

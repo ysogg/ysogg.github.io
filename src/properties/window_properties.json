@@ -72,5 +72,12 @@
             "type": "folder",
             "initialView": "hidden"
         }
+    },
+    {
+        "page": "outline",
+        "data": {
+            "type": "outline",
+            "initialView": "hidden"
+        }
     }]
 }
