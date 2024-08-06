@@ -23,15 +23,6 @@ function addListeners() {
         if (hoveredWin) {
             createOutline(hoveredWin.style.width, hoveredWin.style.height, hoveredWin.style.left, hoveredWin.style.top);
             
-            let windows = getWindows();
-            for (const curr of windows) {
-                if (curr != hoveredWin) {
-                    curr.style.pointerEvents = 'none';
-                    curr.style.userSelect = 'none';
-                    curr.style.zIndex = '0';
-                }
-            }
-            // hoveredWin = document.getElementById("outline");
             let outline = document.getElementById("outline")
             outline.setPointerCapture(true);
             mx_orig = e.pageX; my_orig = e.pageY;
@@ -253,11 +244,11 @@ function addWindowToDOM(win) {
         detectWindow(parentElement);
     });
 
-    // div.querySelector(".titlebar")?.addEventListener("mouseleave", (e) => {
-    //     if (!movingWindow) {
-    //         windowReset();
-    //     }
-    // });
+    div.querySelector(".titlebar")?.addEventListener("mouseleave", (e) => {
+        if (!movingWindow) {
+            if (!document.getElementById("outline")) { windowReset(); }  
+        }
+    });
     
 }
 
