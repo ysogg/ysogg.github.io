@@ -21,10 +21,24 @@ function addListeners() {
         // if (e.leftclick != 1) { return; }
         mouseDown = true;
         if (hoveredWin) {
-            // createOutline(hoveredWin.style.width, hoveredWin.style.height, hoveredWin.style.left, hoveredWin.style.top);
+            createOutline(hoveredWin.style.width, hoveredWin.style.height, hoveredWin.style.left, hoveredWin.style.top);
+            
+            let windows = getWindows();
+            for (const curr of windows) {
+                if (curr != hoveredWin) {
+                    curr.style.pointerEvents = 'none';
+                    curr.style.userSelect = 'none';
+                    curr.style.zIndex = '0';
+                }
+            }
+            // hoveredWin = document.getElementById("outline");
+            let outline = document.getElementById("outline")
+            outline.setPointerCapture(true);
             mx_orig = e.pageX; my_orig = e.pageY;
-            let ex = hoveredWin.style.left;
-            let ey = hoveredWin.style.top;
+            // let ex = hoveredWin.style.left;
+            // let ey = hoveredWin.style.top;
+            let ex = outline.style.left;
+            let ey = outline.style.top;
             if (ex.includes("%")) {
                 wx_orig = +(window.innerWidth) * +("." + ex.replace('%', ''));
             } else { 
@@ -61,11 +75,15 @@ function addListeners() {
             let newTop = (+(e.pageY - my_orig) + wy_orig);
             let newLeft = (+(e.pageX - mx_orig) + wx_orig);
 
-            hoveredWin.style.top = newTop + "px";
-            hoveredWin.style.left = newLeft + "px";
+            // hoveredWin.style.top = newTop + "px";
+            // hoveredWin.style.left = newLeft + "px";
+            let outline = document.getElementById("outline")
+            outline.style.top = newTop + "px";
+            outline.style.left = newLeft + "px";
 
             //should only change zindex when window is selectedd not hovered over
-            hoveredWin.style.zIndex = "999";
+            // hoveredWin.style.zIndex = "999";
+            outline.style.zIndex = "999";
         } else {
             if (mouseDown) {
                 if (hoveredWin) {
@@ -112,6 +130,8 @@ function createOutline(width, height, left, top) {
     div.style.left = left;
     div.style.top = top;
     div.classList.add("outline");
+        div.style.pointerEvents = 'initial';
+        div.style.userSelect = 'initial';
 
     document.body.appendChild(div);
 }
@@ -233,11 +253,11 @@ function addWindowToDOM(win) {
         detectWindow(parentElement);
     });
 
-    div.querySelector(".titlebar")?.addEventListener("mouseleave", (e) => {
-        if (!movingWindow) {
-            windowReset();
-        }
-    });
+    // div.querySelector(".titlebar")?.addEventListener("mouseleave", (e) => {
+    //     if (!movingWindow) {
+    //         windowReset();
+    //     }
+    // });
     
 }
 
