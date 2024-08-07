@@ -13,6 +13,22 @@ body {
     overflow: hidden;
 }
 
+.titlebar {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 20px;
+    background-color: lightgray;
+    user-select: none;
+}
+
+.content {
+    background-color: white;
+    border-style: groove;
+    display: block;
+    height: 90%;
+}
+
 .outline {
     position: absolute;
     display: block;

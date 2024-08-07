@@ -6,6 +6,7 @@ var wx_orig;
 var wy_orig;
 
 var hoveredWin = null;
+var hoveredContent = false;
 var origWindow = null;
 var mousePos;
 var mouseDown = false;
@@ -21,7 +22,9 @@ function addListeners() {
         //TODO make only left click
         // if (e.leftclick != 1) { return; }
         mouseDown = true;
-        if (hoveredWin) {
+        bringToFront(hoveredWin);
+
+        if (hoveredWin && !hoveredContent) {
             origWindow = hoveredWin;
             createOutline(hoveredWin.style.width, hoveredWin.style.height, hoveredWin.style.left, hoveredWin.style.top);
             
@@ -43,18 +46,20 @@ function addListeners() {
             } else { 
                 wy_orig = +(ey.replace('px', ''));
             }
-        };
+        }
     }, false)
 
     document.addEventListener("mouseup", function () {
         mouseDown = false;
         
-        hoveredWin.style.top = outline.style.top;
-        hoveredWin.style.left = outline.style.left;
-        hoveredWin.style.zIndex = "999";
+        if (!hoveredContent && hoveredWin) {
+            hoveredWin.style.top = outline.style.top;
+            hoveredWin.style.left = outline.style.left;
+            hoveredWin.style.zIndex = "999";
+        }
+        
+        if (document.getElementById("outline")) removeWindow("outline");
 
-
-        removeWindow("outline");
         if (movingWindow) {
             let element = hoveredWin;
             if (element == null) return;
@@ -77,6 +82,7 @@ function addListeners() {
 
             // hoveredWin.style.top = newTop + "px";
             // hoveredWin.style.left = newLeft + "px";
+            if (!document.getElementById("outline")) return;
             let outline = document.getElementById("outline")
             outline.style.top = newTop + "px";
             outline.style.left = newLeft + "px";
@@ -153,20 +159,31 @@ function getWindows() {
 function detectWindow(element) {
     if (element == null) return;
 
-    if (element.classList.contains("window")) {
+    if (element.classList.contains("window") || element.parentElement.classList.contains("window")) {
         hoveredWin = element;
         let windows = getWindows();
-
-        //disallow other windows from being selected
         for (const curr of windows) {
             if (curr != hoveredWin) {
                 curr.style.pointerEvents = 'none';
                 curr.style.userSelect = 'none';
-                curr.style.zIndex = '0';
+                // curr.style.zIndex = '0';
             }
         }
     }
-    
+}
+
+function bringToFront(element) {
+    if (element == null) return;
+    element.style.zIndex = "999";
+
+    let windows = getWindows();
+    for (const curr of windows) {
+        if (curr != hoveredWin) {
+            curr.style.pointerEvents = 'none';
+            curr.style.userSelect = 'none';
+            curr.style.zIndex = '0';
+        }
+    }
 }
 
 function windowReset() {
@@ -221,8 +238,8 @@ function addWindowToDOM(win) {
     div.classList.add("window");
     
     div.innerHTML += `
-    <span class="titlebar">
-        <span class='tl_lines', style="width:100px"></span>
+    <div class="titlebar">
+        <span class='tl_lines', style="width:100%"></span>
         <span class="title">`+ win.title + `</span>
         </span>
         `;
@@ -244,7 +261,23 @@ function addWindowToDOM(win) {
 
     document.body.appendChild(div);
 
-    div.querySelector(".titlebar")?.addEventListener("mouseenter", (e) => {
+    // div.querySelector(".titlebar")?.addEventListener("mouseenter", (e) => {
+    //     let target = e.target;
+    //     if (target == null) return;
+
+    //     let parentElement = target.parentElement;
+    //     if (parentElement == null) return;
+    //     detectWindow(parentElement);
+    // });
+
+    // div.querySelector(".titlebar")?.addEventListener("mouseleave", (e) => {
+    //     if (!movingWindow) {
+    //         if (!document.getElementById("outline")) { windowReset(); }  
+    //     }
+    // });
+
+    // $('#' + div.id).on('mouseenter', '*')
+    div.querySelector('*')?.addEventListener("mouseenter", (e) => {
         let target = e.target;
         if (target == null) return;
 
@@ -253,10 +286,29 @@ function addWindowToDOM(win) {
         detectWindow(parentElement);
     });
 
-    div.querySelector(".titlebar")?.addEventListener("mouseleave", (e) => {
+    div.querySelector('*')?.addEventListener("mouseleave", (e) => {
         if (!movingWindow) {
             if (!document.getElementById("outline")) { windowReset(); }  
         }
+    });
+
+    // ^^^^
+        //combine both of these pairs into one
+
+    // .....
+    div.querySelector(".content")?.addEventListener("mouseenter", (e) => {
+        hoveredContent = true;
+        let target = e.target;
+        if (target == null) return;
+
+        let parentElement = target.parentElement
+        if (parentElement == null) return;
+        detectWindow(parentElement);
+    });
+
+    div.querySelector(".content")?.addEventListener("mouseleave", (e) => {
+        hoveredContent = false;
+        windowReset();
     });
     
 }
