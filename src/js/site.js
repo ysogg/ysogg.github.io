@@ -31,8 +31,7 @@ function addListeners() {
             let outline = document.getElementById("outline")
             outline.setPointerCapture(true);
             mx_orig = e.pageX; my_orig = e.pageY;
-            // let ex = hoveredWin.style.left;
-            // let ey = hoveredWin.style.top;
+
             let ex = outline.style.left;
             let ey = outline.style.top;
             if (ex.includes("%")) {
@@ -70,7 +69,7 @@ function addListeners() {
         
     }, false)
 
-    document.addEventListener("mousemove", function (e) { // e =>
+    document.addEventListener("mousemove", e => {
         mx = e.pageX;
         my = e.pageY;
 
@@ -80,15 +79,11 @@ function addListeners() {
             let newTop = (+(e.pageY - my_orig) + wy_orig);
             let newLeft = (+(e.pageX - mx_orig) + wx_orig);
 
-            // hoveredWin.style.top = newTop + "px";
-            // hoveredWin.style.left = newLeft + "px";
             if (!document.getElementById("outline")) return;
             let outline = document.getElementById("outline")
             outline.style.top = newTop + "px";
             outline.style.left = newLeft + "px";
 
-            //should only change zindex when window is selectedd not hovered over
-            // hoveredWin.style.zIndex = "999";
             outline.style.zIndex = "999";
         } else {
             if (mouseDown) {
@@ -101,7 +96,7 @@ function addListeners() {
 }
 
 function createWindow(name) {
-    if (document.getElementById(name)) { return; }
+    if (document.getElementById(name)) return;
     var index = windowList.windows.findIndex(win => win.page == name);
 
     if (index != -1) {
@@ -122,7 +117,7 @@ function removeWindow(name) {
 }
 
 function createOutline(width, height, left, top) {
-    if (document.getElementById("outline")) { return; }
+    if (document.getElementById("outline")) return;
     var index = windowList.windows.findIndex(win => win.page == "outline");
     var properties = windowList.windows[index];
 
@@ -247,7 +242,6 @@ function addWindowToDOM(win) {
 
     // Rough proof of concept
     // Eventually this should be its own function
-    // Also switch up json to have a sub object that contains window type, link, and other misc info that isn't style properties
     var contents = document.createElement("span");
     contents.classList.add("content");
     if (win.link != null) {
@@ -261,22 +255,6 @@ function addWindowToDOM(win) {
 
     document.body.appendChild(div);
 
-    // div.querySelector(".titlebar")?.addEventListener("mouseenter", (e) => {
-    //     let target = e.target;
-    //     if (target == null) return;
-
-    //     let parentElement = target.parentElement;
-    //     if (parentElement == null) return;
-    //     detectWindow(parentElement);
-    // });
-
-    // div.querySelector(".titlebar")?.addEventListener("mouseleave", (e) => {
-    //     if (!movingWindow) {
-    //         if (!document.getElementById("outline")) { windowReset(); }  
-    //     }
-    // });
-
-    // $('#' + div.id).on('mouseenter', '*')
     div.querySelector('*')?.addEventListener("mouseenter", (e) => {
         let target = e.target;
         if (target == null) return;
@@ -292,10 +270,6 @@ function addWindowToDOM(win) {
         }
     });
 
-    // ^^^^
-        //combine both of these pairs into one
-
-    // .....
     div.querySelector(".content")?.addEventListener("mouseenter", (e) => {
         hoveredContent = true;
         let target = e.target;
