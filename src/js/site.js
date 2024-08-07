@@ -6,6 +6,7 @@ var wx_orig;
 var wy_orig;
 
 var hoveredWin = null;
+var origWindow = null;
 var mousePos;
 var mouseDown = false;
 var hoveredWin = false;
@@ -21,6 +22,7 @@ function addListeners() {
         // if (e.leftclick != 1) { return; }
         mouseDown = true;
         if (hoveredWin) {
+            origWindow = hoveredWin;
             createOutline(hoveredWin.style.width, hoveredWin.style.height, hoveredWin.style.left, hoveredWin.style.top);
             
             let outline = document.getElementById("outline")
@@ -46,11 +48,18 @@ function addListeners() {
 
     document.addEventListener("mouseup", function () {
         mouseDown = false;
+        
+        hoveredWin.style.top = outline.style.top;
+        hoveredWin.style.left = outline.style.left;
+        hoveredWin.style.zIndex = "999";
+
+
         removeWindow("outline");
         if (movingWindow) {
             let element = hoveredWin;
             if (element == null) return;
             windowReset();
+
             detectWindow(element)
         }
         
