@@ -104,6 +104,7 @@ function createWindow(name) {
         newWin = new Window(properties);
         addWindowToDOM(newWin);
         toggleWindow(name);
+        bringToFront(newWin);
     }
 }
 
@@ -161,7 +162,6 @@ function detectWindow(element) {
             if (curr != hoveredWin) {
                 curr.style.pointerEvents = 'none';
                 curr.style.userSelect = 'none';
-                // curr.style.zIndex = '0';
             }
         }
     }
