@@ -54,7 +54,7 @@ function addListeners() {
         if (!hoveredContent && hoveredWin) {
             hoveredWin.style.top = outline.style.top;
             hoveredWin.style.left = outline.style.left;
-            hoveredWin.style.zIndex = "999";
+            hoveredWin.style.zIndex = "5";
         }
         
         if (document.getElementById("outline")) removeWindow("outline");
@@ -84,7 +84,7 @@ function addListeners() {
             outline.style.top = newTop + "px";
             outline.style.left = newLeft + "px";
 
-            outline.style.zIndex = "999";
+            outline.style.zIndex = "5";
         } else {
             if (mouseDown) {
                 if (hoveredWin) {
@@ -169,14 +169,16 @@ function detectWindow(element) {
 
 function bringToFront(element) {
     if (element == null) return;
-    element.style.zIndex = "999";
+    element.style.zIndex = "5";
 
     let windows = getWindows();
     for (const curr of windows) {
         if (curr != hoveredWin) {
             curr.style.pointerEvents = 'none';
             curr.style.userSelect = 'none';
-            curr.style.zIndex = '0';
+            if (curr.style.zIndex > 0) {
+                curr.style.zIndex = curr.style.zIndex - 1;
+            }
         }
     }
 }
