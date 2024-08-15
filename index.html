@@ -3,6 +3,17 @@
         <link rel="stylesheet" href="src/css/main.css"/>
         <script src="src/js/site.js" defer></script>
     </head>
+    <header>
+        <span>[img]</span>
+        <span>File</span>
+        <span>Edit</span>
+        <span>View</span>
+        <span>Special</span>
+        <span>Help</span>
+        <span id="date" class="rightHeader" style="user-select: none;"></span>
+        <button class="rightHeader"></button>
+        <span class="rightHeader">Finder</span>
+    </header>
     <body>
         <div>
             <p>In progress</p>
@@ -10,3 +21,34 @@
         <span class="shortcut" onclick="createWindow('example_folder');">[]</span>
     </body>
 </html>
+
+<script>
+    var toggleDate = false;
+    const date = new Date();
+    var year = String(date.getFullYear());
+
+    var trimmedDate = String(date.getMonth() + 1 + "/" + date.getDate() + "/" + year.substring(2));
+    var formattedTime = String(date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }));
+    
+    var dateField = document.getElementById("date");
+    dateField.innerHTML = formattedTime;
+
+    
+    dateField.addEventListener("mouseenter", (e) => {
+        toggleWindowSelection();
+    });
+
+    dateField.addEventListener("mouseleave", (e) => {
+        toggleWindowSelection();
+    });
+
+    dateField.addEventListener('click', e => {
+        if (toggleDate == false) {
+            toggleDate = !toggleDate;
+            document.getElementById("date").innerHTML = trimmedDate;
+        } else {
+            toggleDate = !toggleDate;
+            document.getElementById("date").innerHTML = formattedTime;
+        }
+    })  
+</script>

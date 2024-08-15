@@ -7,6 +7,7 @@ var wy_orig;
 
 var hoveredWin = null;
 var hoveredContent = false;
+var nonWindow = false;
 var origWindow = null;
 var mousePos;
 var mouseDown = false;
@@ -148,6 +149,12 @@ function toggleWindow(winName) {
     }
 }
 
+//Ignore other event listeners when working with non windows
+function toggleWindowSelection() {
+    nonWindow = !nonWindow;
+    console.log(nonWindow);
+}
+
 function getWindows() {
     return Array.from(document.querySelectorAll(".window"));
 }
@@ -168,6 +175,7 @@ function detectWindow(element) {
 }
 
 function bringToFront(element) {
+    if (nonWindow) return;
     if (element == null) return;
     element.style.zIndex = "5";
 

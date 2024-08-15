@@ -1,9 +1,27 @@
 body {
     height: 100%;
     display: block;
-    padding-left: 10px;
     margin: auto auto;
 }
+
+header {
+    background-color: lightgray;
+    margin-top: 0px;
+    padding-left: 5px;
+    height: 20px;
+}
+
+header span {
+    margin-right: 5px;
+}
+
+header button {
+    margin-right: 5px;
+}
+
+/* .rightHeader {
+    float: right;
+} */
 
 .window {
     position: absolute;
