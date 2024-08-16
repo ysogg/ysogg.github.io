@@ -9,15 +9,18 @@ header {
     background-color: #DDDDDD;
     box-shadow: inset 0 -1px 0 0 black, inset 0 -2px 0 0 #9c9c9c;
     font-family: Charcoal, "WebCharcoal", sans-serif;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 600;
     margin-top: 0px;
     padding-left: 5px;
+    padding-right: 20px;
     height: 20px;
 }
 
 header span {
-    margin-right: 5px;
+    float: left;
+    padding-right: 15px;
+    padding-top: 2px;
 }
 
 /* Will be replaced with vertical dot imagge */
@@ -29,6 +32,7 @@ header span {
 
 .rightHeader {
     float: right;
+    padding-right: 5px;
 }
 
 .window {
