@@ -152,7 +152,6 @@ function toggleWindow(winName) {
 //Ignore other event listeners when working with non windows
 function toggleWindowSelection() {
     nonWindow = !nonWindow;
-    console.log(nonWindow);
 }
 
 function getWindows() {

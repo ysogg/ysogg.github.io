@@ -2,6 +2,7 @@
     <head>
         <link rel="stylesheet" href="src/css/main.css"/>
         <script src="src/js/site.js" defer></script>
+        <script src="src/js/headerFunctions.js" defer></script>
     </head>
     <header>
         <span>[img]</span>
@@ -11,7 +12,7 @@
         <span>Special</span>
         <span>Help</span>
 
-        <span class="rightHeader">Finder</span>
+        <span id="finder" class="rightHeader">Finder</span>
         <span id="finderBtn" class="rightHeader">.</span>
         <span id="date" class="rightHeader" style="user-select: none;"></span>
     </header>
@@ -23,33 +24,3 @@
     </body>
 </html>
 
-<script>
-    var toggleDate = false;
-    const date = new Date();
-    var year = String(date.getFullYear());
-
-    var trimmedDate = String(date.getMonth() + 1 + "/" + date.getDate() + "/" + year.substring(2));
-    var formattedTime = String(date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }));
-    
-    var dateField = document.getElementById("date");
-    dateField.innerHTML = formattedTime;
-
-    
-    dateField.addEventListener("mouseenter", (e) => {
-        toggleWindowSelection();
-    });
-
-    dateField.addEventListener("mouseleave", (e) => {
-        toggleWindowSelection();
-    });
-
-    dateField.addEventListener('click', e => {
-        if (toggleDate == false) {
-            toggleDate = !toggleDate;
-            document.getElementById("date").innerHTML = trimmedDate;
-        } else {
-            toggleDate = !toggleDate;
-            document.getElementById("date").innerHTML = formattedTime;
-        }
-    })  
-</script>
