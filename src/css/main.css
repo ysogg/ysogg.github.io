@@ -19,9 +19,9 @@ header button {
     margin-right: 5px;
 }
 
-/* .rightHeader {
+.rightHeader {
     float: right;
-} */
+}
 
 .window {
     position: absolute;
