@@ -152,6 +152,7 @@ function createOutline(width, height, left, top) {
         div.style.pointerEvents = 'initial';
         div.style.userSelect = 'initial';
 
+    div.style.zIndex = "6";
     document.body.appendChild(div);
 }
 
