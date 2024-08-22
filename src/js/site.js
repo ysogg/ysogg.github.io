@@ -6,6 +6,10 @@ var wx_orig;
 var wy_orig;
 
 var hoveredWin = null;
+var storedWindow = null;
+var overlappedL = null;
+var overlappedR = null;
+
 var hoveredContent = false;
 var nonWindow = false;
 var origWindow = null;
@@ -25,9 +29,17 @@ function addListeners() {
         mouseDown = true;
 
         checkOverlap(hoveredWin, e);
+        if (storedWindow)  {
+            hoveredWin = storedWindow;
+            storedWindow = null;
+            
+            // windowReset();
+            // detectWindow(hoveredWindow);
+        }
+        console.log(hoveredWin);
 
         bringToFront(hoveredWin);
-
+        
         if (hoveredWin && !hoveredContent) {
             origWindow = hoveredWin;
             createOutline(hoveredWin.style.width, hoveredWin.style.height, hoveredWin.style.left, hoveredWin.style.top);
@@ -35,7 +47,6 @@ function addListeners() {
             let outline = document.getElementById("outline")
             outline.setPointerCapture(true);
             mx_orig = e.pageX; my_orig = e.pageY;
-
             let ex = outline.style.left;
             let ey = outline.style.top;
             if (ex.includes("%")) {
@@ -79,7 +90,6 @@ function addListeners() {
 
         if (movingWindow) {
             if (!hoveredWin) return;
-
             let newTop = (+(e.pageY - my_orig) + wy_orig);
             let newLeft = (+(e.pageX - mx_orig) + wx_orig);
 
@@ -89,6 +99,9 @@ function addListeners() {
             outline.style.left = newLeft + "px";
 
             outline.style.zIndex = "5";
+
+            overlappedL = null;
+            overlappedR = null;
         } else {
             if (mouseDown) {
                 if (hoveredWin) {
@@ -203,8 +216,8 @@ function checkOverlap(hovered, mouse) {
     
     var topWin = windows.find(e => e.style.zIndex === "5");
 
-    console.log(topWin);
-    console.log(hovered);
+    // console.log(topWin);
+    // console.log(hovered);
 
     //if hovered still has % then convert
     // let ex = hovered.style.left;
@@ -217,30 +230,41 @@ function checkOverlap(hovered, mouse) {
     // if (ey.includes("%")) {
     //     ey = +(window.innerHeight) * +("." + ey.replace('%', '')) + "px";
     // } 
-
+//FIX - also need to handle dragging window into an overlap and mousing over bottom win then returning to topwin without clicking off then back on to topwin
+//current solution works for drag window over, click on to other, click back on to original, then drag off and return
     var hoveredBounds = hovered.getBoundingClientRect();
     var topWinBounds = topWin.getBoundingClientRect();
 
-
-    var overlap = !(hoveredBounds.right < topWinBounds.left ||
-                    hoveredBounds.left > topWinBounds.right ||
-                    hoveredBounds.bottom < topWinBounds.top ||
-                    hoveredBounds.top > topWinBounds.bottom
-                );
-
-    console.log(overlap);
-    //maybe set a store that switches hovered to whatever store is on next mouse click?
-    // if (overlap) {
-    //     //check if where you're clicking is within the overlap zone, if it is then switch hovered window
-    //     if (mouse.pageX > hoveredBounds.left && mouse.pageX < topWinBounds.right) {
-
-    //         console.log("within bounds");
-    //         hoveredWin = topWin;
-
-            
-    //     }
+    var overlap = false;
+    if (!overlappedL && !overlappedR) {
+        overlap = !(hoveredBounds.right < topWinBounds.left ||
+                        hoveredBounds.left > topWinBounds.right ||
+                        hoveredBounds.bottom < topWinBounds.top ||
+                        hoveredBounds.top > topWinBounds.bottom
+                    );
+        if (overlap) {
+            if (hoveredBounds.left < topWinBounds.left) {
+                overlappedL = hoveredBounds; overlappedR = topWinBounds;
+            } else {
+                overlappedL = topWinBounds; overlappedR = hoveredBounds;
+            }
+        }
         
-    // }
+    } else {
+        //check if clicking in overlapped zone
+        if (mouse.pageX < overlappedL.right && mouse.pageX > overlappedR.left) {
+            
+            let upperBound = overlappedL.top < overlappedR.top ? overlappedR.top : overlappedL.top;
+            let lowerBound = overlappedL.bottom < overlappedR.bottom ? overlappedL.bottom : overlappedR.bottom; 
+        
+            // if (mouse.pageY < upperBound && mouse.pageY > lowerBound) {
+                console.log("within bounds");
+                hoveredContent = false;
+                storedWindow = topWin;
+            // }
+         
+        }
+    }
 }
 
 function windowReset() {
