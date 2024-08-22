@@ -23,6 +23,9 @@ function addListeners() {
         //TODO make only left click
         // if (e.leftclick != 1) { return; }
         mouseDown = true;
+
+        checkOverlap(hoveredWin, e);
+
         bringToFront(hoveredWin);
 
         if (hoveredWin && !hoveredContent) {
@@ -188,6 +191,56 @@ function bringToFront(element) {
             }
         }
     }
+}
+
+function checkOverlap(hovered, mouse) {
+    if (hovered == null) return;
+
+    let windows = getWindows();
+    if (windows.some(e => e.style.zIndex === "5") == false) return;
+
+    // let mouseX = e.pageX; let mouseY = e.pageY;
+    
+    var topWin = windows.find(e => e.style.zIndex === "5");
+
+    console.log(topWin);
+    console.log(hovered);
+
+    //if hovered still has % then convert
+    // let ex = hovered.style.left;
+    // let ey = hovered.style.top;
+
+    // if (ex.includes("%")) {
+    //     ex = +(window.innerWidth) * +("." + ex.replace('%', '')) + "px";
+    // } 
+
+    // if (ey.includes("%")) {
+    //     ey = +(window.innerHeight) * +("." + ey.replace('%', '')) + "px";
+    // } 
+
+    var hoveredBounds = hovered.getBoundingClientRect();
+    var topWinBounds = topWin.getBoundingClientRect();
+
+
+    var overlap = !(hoveredBounds.right < topWinBounds.left ||
+                    hoveredBounds.left > topWinBounds.right ||
+                    hoveredBounds.bottom < topWinBounds.top ||
+                    hoveredBounds.top > topWinBounds.bottom
+                );
+
+    console.log(overlap);
+    //maybe set a store that switches hovered to whatever store is on next mouse click?
+    // if (overlap) {
+    //     //check if where you're clicking is within the overlap zone, if it is then switch hovered window
+    //     if (mouse.pageX > hoveredBounds.left && mouse.pageX < topWinBounds.right) {
+
+    //         console.log("within bounds");
+    //         hoveredWin = topWin;
+
+            
+    //     }
+        
+    // }
 }
 
 function windowReset() {
