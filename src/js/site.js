@@ -98,8 +98,6 @@ function addListeners() {
             outline.style.top = newTop + "px";
             outline.style.left = newLeft + "px";
 
-            outline.style.zIndex = "5";
-
             overlappedL = null;
             overlappedR = null;
         } else {
