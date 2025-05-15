@@ -3,7 +3,7 @@ import logo from '../../burger.gif';
 
 interface Props {}
 
-const HomePage = (props: Props) => {
+const Home = (props: Props) => {
     return(
         <div className="App">
         <header className="App-header">
@@ -16,4 +16,4 @@ const HomePage = (props: Props) => {
     )
 }
 
-export default HomePage
+export default Home
