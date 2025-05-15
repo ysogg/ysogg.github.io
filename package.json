@@ -1,7 +1,7 @@
 {
   "name": "dev-site",
   "version": "0.1.0",
-  "homepage": "https://ysogg.github.io/"
+  "homepage": "https://ysogg.github.io/",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
