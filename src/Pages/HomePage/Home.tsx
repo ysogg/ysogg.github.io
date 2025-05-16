@@ -1,7 +1,7 @@
 import React from 'react'
 import logo from '../../burger.gif';
 import { Link } from 'react-router';
-import '../../App.css';
+import '../../global-styles.css';
 
 interface Props {}
 
