@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router";
 import App from "../App";
 import Home from "../Pages/HomePage/Home";
 import Folio from "../Pages/FolioPage/Folio";
+import { basename } from "path";
 
 export const router = createBrowserRouter([
     {
@@ -12,4 +13,4 @@ export const router = createBrowserRouter([
             {path: "folio", element: <Folio />},
         ],
     },
-])
+], {basename: "/"})

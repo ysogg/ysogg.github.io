@@ -4,13 +4,25 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { router } from './Routes/Routes';
 import { RouterProvider } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router';
+import Home from './Pages/HomePage/Home';
+import Folio from './Pages/FolioPage/Folio';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    {/* <RouterProvider router={router} /> */}
+    {/* ReactDOM.createRoot(root).render( */}
+  <BrowserRouter basename="/">
+    <Routes>
+      <Route index element={<Home />} />
+      <Route path="folio" element={<Folio/>} />
+      <Route path="*" element={<Home />} />
+    </Routes>
+  </BrowserRouter>
+{/* ); */}
   </React.StrictMode>
 );
 
