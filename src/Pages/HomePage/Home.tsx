@@ -1,5 +1,6 @@
 import React from 'react'
 import logo from '../../burger.gif';
+import { Link } from 'react-router';
 
 interface Props {}
 
@@ -8,6 +9,7 @@ const Home = (props: Props) => {
         <div className="App">
         <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
+            <Link to={`/folio`}>Link</Link>
             <p>
             Testing...
             </p>

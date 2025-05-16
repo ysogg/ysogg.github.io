@@ -9,7 +9,10 @@ export const router = createBrowserRouter([
         element: <App />,
         children: [
             {path: "", element: <Home />},
-            {path: "folio", element: <Folio />}
         ],
+    },
+    {
+        path: "/folio",
+        element: <Folio />,
     }
 ])
