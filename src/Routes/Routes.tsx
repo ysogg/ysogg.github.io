@@ -5,14 +5,11 @@ import Folio from "../Pages/FolioPage/Folio";
 
 export const router = createBrowserRouter([
     {
-        path: "/",
+        path: "",
         element: <App />,
         children: [
             {path: "", element: <Home />},
+            {path: "folio", element: <Folio />},
         ],
     },
-    {
-        path: "/folio",
-        element: <Folio />,
-    }
 ])
