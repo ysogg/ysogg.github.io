@@ -1,4 +1,5 @@
 import React from 'react';
+import WebGLComponent from '../Components/Cube'
 
 function Folio() {
   return (
@@ -7,6 +8,7 @@ function Folio() {
         <p>
           Test Page
         </p>
+        <WebGLComponent /> 
       </header>
     </div>
   );
