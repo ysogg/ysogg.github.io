@@ -1,14 +1,17 @@
 .container {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  background-color: dodgerblue;
-  padding: 10px;
+    background-color: dodgerblue;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1em;
 }
 
-.container div {
-  background-color: #f1f1f1;
-  border: 1px solid black;
-  padding: 10px;
-  font-size: 30px;
-  text-align: center;
+.container > div {
+    border-radius: 7px;
+    overflow: hidden;
+    background: #202030;
+    position: relative;
+    min-width: 0;
+    min-height: 0;
 }

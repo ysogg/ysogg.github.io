@@ -17,7 +17,7 @@ const meshRef = useRef<THREE.Mesh>(null!)
 		onClick={(event) => setActive(!active)}
 		onPointerOver={(event) => setHover(true)}
 		onPointerOut={(event) => setHover(false)}>
-		<boxGeometry args={[1, 1, 1]} />
+		<boxGeometry args={[4, 2, 1]} />
 		<meshStandardMaterial color={hovered ? 'hotpink' : '#2f74c0'} />
 	  </mesh>
 	)
