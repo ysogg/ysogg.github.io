@@ -2,9 +2,9 @@
     background-color: dodgerblue;
     padding: 10px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 1em;
+    grid-template-columns: 3fr 3fr 3fr;
+    grid-template-rows: 3fr 3fr 3fr;
+    gap: 3em;
 }
 
 .container > div {
@@ -12,6 +12,6 @@
     overflow: hidden;
     background: #202030;
     position: relative;
-    min-width: 0;
-    min-height: 0;
+    min-width: 350px;
+    min-height: 350px;
 }
