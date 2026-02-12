@@ -27,7 +27,7 @@ const Home = (props: Props) => {
                         <ambientLight intensity={Math.PI / 2} />
                         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI} />
                         <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI} />
-                        <Cube front={"cat.png"} back={"h,m.png"}/>
+                        <Cube front={"cat.png"} back={"h,m.png"} top={"cat.png"} bot={"cat.png"} left={"cat.png"} right={"cat.png"}/>
                         </Canvas>
                     </div>
                     <div>
@@ -35,7 +35,7 @@ const Home = (props: Props) => {
                         <ambientLight intensity={Math.PI / 2} />
                         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI} />
                         <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI} />
-                        <Cube front="cat.png" back="h,m.png"/>
+                        <Cube front={"cat.png"} back={"h,m.png"} top={"cat.png"} bot={"cat.png"} left={"cat.png"} right={"cat.png"}/>
                         </Canvas>
                     </div>
                     <div>
@@ -43,7 +43,7 @@ const Home = (props: Props) => {
                         <ambientLight intensity={Math.PI / 2} />
                         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI} />
                         <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI} />
-                        <Cube front={"cat.png"} back={"h,m.png"}/>
+                        <Cube front={"cat.png"} back={"h,m.png"} top={"cat.png"} bot={"cat.png"} left={"cat.png"} right={"cat.png"}/>
                         </Canvas>
                     </div>
                     <div>
@@ -51,7 +51,7 @@ const Home = (props: Props) => {
                         <ambientLight intensity={Math.PI / 2} />
                         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI} />
                         <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI} />
-                        <Cube front={"cat.png"} back={"h,m.png"}/>
+                        <Cube front={"cat.png"} back={"h,m.png"} top={"cat.png"} bot={"cat.png"} left={"cat.png"} right={"cat.png"}/>
                         </Canvas>
                     </div>
                 </div>

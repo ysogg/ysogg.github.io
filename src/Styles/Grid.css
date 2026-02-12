@@ -1,5 +1,4 @@
 .container {
-    
     padding: 10px;
     display: grid;
     grid-template-columns: 3fr 3fr 3fr;
@@ -12,6 +11,7 @@
     overflow: hidden;
     background: #202030;
     position: relative;
-    min-width: 350px;
-    min-height: 350px;
+    min-width: 485px;
+    min-height: 485px;
+    background-color: #282c34;
 }
