@@ -31,8 +31,8 @@ const meshRef = useRef<THREE.Mesh>(null!)
 	const [frontTexture, backTexture, topTexture, bottomTexture, leftTexture, rightTexture] = useTexture([
 		`/img/${props.front}`, 
 		`/img/${props.back}`, 
-		`/img/${props.front}`, 
-		`/img/${props.front}`, 
+		`/img/${props.front}`, // Use .front for now since we don't ever see top/bottom
+		`/img/${props.front}`, //
 		`/img/${props.left}`, 
 		`/img/${props.front}`, 
 	]);
@@ -49,8 +49,8 @@ const meshRef = useRef<THREE.Mesh>(null!)
 
 	  	<meshStandardMaterial key={0} attach={"material-0"} map={rightTexture}/>
 	  	<meshStandardMaterial key={1} attach={"material-1"} map={leftTexture}/>
-		<meshStandardMaterial key={2} attach={"material-2"} map={topTexture}/> {/*Won't need */}
-		<meshStandardMaterial key={3} attach={"material-3"} map={bottomTexture}/> {/*Won't need */}
+		<meshStandardMaterial key={2} attach={"material-2"} map={topTexture}/> {/*Won't need but need to define all 6 sides*/}
+		<meshStandardMaterial key={3} attach={"material-3"} map={bottomTexture}/> {/*^^^*/}
 		<meshStandardMaterial key={4} attach={"material-4"} map={frontTexture}/>
 		<meshStandardMaterial key={5} attach={"material-5"} map={backTexture}/>
 	  </mesh>

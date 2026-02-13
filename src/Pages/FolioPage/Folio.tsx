@@ -1,6 +1,6 @@
 import { Canvas } from '@react-three/fiber'
 import Cube from '../Components/Cube'
-import "../../Styles/Grid.css"
+import "../../Styles/Tiles.css"
 
 
 function Folio() {
