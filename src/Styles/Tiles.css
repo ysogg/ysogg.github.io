@@ -1,0 +1,39 @@
+.searchbar {
+    padding: 15px;
+}
+
+.searchbar input {
+    display: grid;
+    margin: auto;
+    height: 30px;
+    min-width: 485px;
+    width: 99%;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 25px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    outline: solid 3px white;
+
+}
+
+.container {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 3fr 3fr 3fr;
+    grid-template-rows: 3fr 3fr 3fr;
+    gap: 3em;
+    min-width: 1614px;
+    min-height: 1614px;
+}
+
+.container > div {
+    border-radius: 7px;
+    overflow: hidden;
+    position: relative;
+    min-width: 485px;
+    min-height: 485px;
+    background-color: #282c34;
+}
