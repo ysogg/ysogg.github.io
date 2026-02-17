@@ -10,7 +10,8 @@ const meshRef = useRef<THREE.Mesh>(null!)
   const [flip, setFlip] = useState(false)
   const [side, setSide] = useState(false)
   const [animCount, setAnimCount] = useState(0)
-	useFrame((state, delta) => {
+  
+	useFrame((state) => {
 		if (!flip) {
 			setAnimCount(0)
 			meshRef.current.rotation.y = state.pointer.x *0.15 + (side ? 3.14159 : 0);
@@ -18,10 +19,10 @@ const meshRef = useRef<THREE.Mesh>(null!)
 		}
 
 		if (flip) {
-			meshRef.current.rotation.y += delta * 3
+			meshRef.current.rotation.y += 0.03
 			setAnimCount(animCount+1)
 			
-			if (animCount > 187) {
+			if (animCount > 100) {
 				setSide(!side)	
 				setFlip(!flip)
 			}
