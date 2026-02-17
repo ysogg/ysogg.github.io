@@ -10,7 +10,7 @@ const meshRef = useRef<THREE.Mesh>(null!)
   const [flip, setFlip] = useState(false)
   const [side, setSide] = useState(false)
   const [animCount, setAnimCount] = useState(0)
-  
+
 	useFrame((state) => {
 		if (!flip) {
 			setAnimCount(0)
@@ -46,7 +46,7 @@ const meshRef = useRef<THREE.Mesh>(null!)
 		onClick={(event) => setFlip(!flip)}
 		onPointerOver={(event) => setHover(true)}
 		onPointerOut={(event) => setHover(false)}>
-		<boxGeometry args={[4, 4, 0.2]} />
+		<boxGeometry args={[2.8, 2.8, 0.2]} />
 
 	  	<meshStandardMaterial key={0} attach={"material-0"} map={rightTexture}/>
 	  	<meshStandardMaterial key={1} attach={"material-1"} map={leftTexture}/>

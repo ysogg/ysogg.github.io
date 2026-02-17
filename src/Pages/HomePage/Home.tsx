@@ -88,6 +88,46 @@ const Home = ({...props}) => {
                             </Canvas>
                         </div>
                     }
+                    {( noSearch || cover3.some(str => str.includes(searchElement.toLowerCase())) ) &&
+                        <div>
+                            <Canvas>
+                            <ambientLight intensity={Math.PI / 2} />
+                            <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI} />
+                            <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI} />
+                            <Cube front={"cat.png"} back={"h,m.png"} left={"cat.png"} right={"cat.png"}/>
+                            </Canvas>
+                        </div>
+                    }
+                    {( noSearch || cover3.some(str => str.includes(searchElement.toLowerCase())) ) &&
+                        <div>
+                            <Canvas>
+                            <ambientLight intensity={Math.PI / 2} />
+                            <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI} />
+                            <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI} />
+                            <Cube front={"cat.png"} back={"h,m.png"} left={"cat.png"} right={"cat.png"}/>
+                            </Canvas>
+                        </div>
+                    }
+                    {( noSearch || cover3.some(str => str.includes(searchElement.toLowerCase())) ) &&
+                        <div>
+                            <Canvas>
+                            <ambientLight intensity={Math.PI / 2} />
+                            <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI} />
+                            <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI} />
+                            <Cube front={"cat.png"} back={"h,m.png"} left={"cat.png"} right={"cat.png"}/>
+                            </Canvas>
+                        </div>
+                    }
+                    {( noSearch || cover3.some(str => str.includes(searchElement.toLowerCase())) ) &&
+                        <div>
+                            <Canvas>
+                            <ambientLight intensity={Math.PI / 2} />
+                            <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI} />
+                            <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI} />
+                            <Cube front={"cat.png"} back={"h,m.png"} left={"cat.png"} right={"cat.png"}/>
+                            </Canvas>
+                        </div>
+                    }
                 </div>
             </header>
         </div>
