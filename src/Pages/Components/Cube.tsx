@@ -30,12 +30,12 @@ const meshRef = useRef<THREE.Mesh>(null!)
 	})
 
 	const [frontTexture, backTexture, topTexture, bottomTexture, leftTexture, rightTexture] = useTexture([
-		`/img/${props.front}`, 
-		`/img/${props.back}`, 
-		`/img/${props.front}`, // Use .front for now since we don't ever see top/bottom
-		`/img/${props.front}`, //
-		`/img/${props.left}`, 
-		`/img/${props.front}`, 
+		`/records/img/${props.front}`, 
+		`/records/img/${props.back}`, 
+		`/records/img/${props.front}`, // Use .front for now since we don't ever see top/bottom
+		`/records/img/${props.front}`, //
+		`/records/img/${props.left}`, 
+		`/records/img/${props.front}`, 
 	]);
 
 	return (

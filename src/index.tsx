@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from 'react-router';
 import Home from './Pages/HomePage/Home';
-import Folio from './Pages/FolioPage/Folio';
+import Records from './Pages/RecordsPage/Records';
+import './global-styles.css';
 
 
 const root = document.getElementById("root") as HTMLElement;
@@ -14,7 +14,7 @@ ReactDOM.createRoot(root).render(
     <BrowserRouter basename="/">
       <Routes>
         <Route index element={<Home />} />
-        <Route path="folio" element={<Folio/>} />
+        <Route path="records" element={<Records/>} />
         <Route path="*" element={<Home />} />
       </Routes>
     </BrowserRouter>
