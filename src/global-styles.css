@@ -1,5 +1,7 @@
 body {
-  background-color: #282c34;
+  /* font-family: "Franklin Gothic Medium", "Franklin Gothic", Arial, sans-serif; */
+  font-family: "apercu", -apple-system, system, sans-serif;
+  background-color: #FAF0E6;
 }
 
 .App {
@@ -18,7 +20,7 @@ body {
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #FAF0E6;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -26,6 +28,7 @@ body {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  
 }
 
 .App-link {

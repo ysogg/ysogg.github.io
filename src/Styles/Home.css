@@ -1,0 +1,126 @@
+body {
+	/*max-width: 1000px;*/
+	/*margin: 0 auto;*/
+	line-height: 1.4;
+	/* text-align: center; */
+	/* display: flex; */
+	/* justify-content: center; */
+	/* align-items: center; */
+	min-height: 100vh;
+	position: relative;
+	overflow: hidden;
+	background-image: none;
+}
+
+body::before {
+	content: "";
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	background-color: #383737;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%23ddd' fill-opacity='0.4' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+	animation: backgroundScroll 120s linear infinite;
+}
+
+.shadow2 {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  position: absolute;
+  opacity: 0.5;
+  z-index: 0;
+  transform: scale(1.2)
+}
+
+.home-inner {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10% auto;
+  justify-content: center; 
+}
+
+.logo {
+  position: relative;
+  max-height: 200px;
+  z-index: 9999;
+}
+
+.logo img {
+  max-height: 50px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.header {
+  text-align: left;
+  position: relative;
+  padding-top: 15px;
+  padding-bottom: 35px;
+}
+
+.header h1 {
+  color: #f74843;
+  font-size: 38px;
+  font-weight: 900;
+  z-index: 9999;
+}
+
+.header p {
+  color: #f2eee9;
+  font-size: 22px;
+  font-weight: 600;
+  z-index: 9999;
+}
+
+.header p a {
+  color: #f2eee9;
+  transition: all 250ms linear;
+  text-decoration: none;
+}
+
+.header p a:hover {
+  color: #f74843;
+  cursor: pointer;
+}
+
+.headerLinks ul {
+  display: block;
+  text-align: left;
+  list-style: none;
+  /* color: #d53e28; */
+  font-size: 70px;
+  font-weight: 900;
+  /* margin: 0; */
+  padding: 0;
+  z-index: 9999;
+}
+
+.headerLinks a {
+  text-decoration: none;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.headerLinks ul li {
+  line-height: 1.2;
+}
+
+.headerLinks ul li a {
+  transition: all 250ms linear;
+  display: block;
+  border: none;
+  color: #f74843;
+}
+
+.headerLinks ul li a:hover {
+  color: #fff;
+  cursor: pointer;
+}
+
+.listLink {
+  color: #f74843;
+}

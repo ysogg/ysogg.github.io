@@ -4,6 +4,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from 'react-router';
 import Home from './Pages/HomePage/Home';
 import Records from './Pages/RecordsPage/Records';
+import Resume from './Pages/ResumePage/Resume';
 import './global-styles.css';
 
 
@@ -15,6 +16,7 @@ ReactDOM.createRoot(root).render(
       <Routes>
         <Route index element={<Home />} />
         <Route path="records" element={<Records/>} />
+        <Route path="resume" element={<Resume/>} />
         <Route path="*" element={<Home />} />
       </Routes>
     </BrowserRouter>
