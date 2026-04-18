@@ -1,6 +1,6 @@
 import React, { useState, FC, useRef } from 'react'
 import "../../Styles/Home.css"
-
+import fingerGif from "../../Assets/finger.gif"
 
 interface ListProps {
   item: any;
@@ -30,7 +30,12 @@ const ListDropdown: FC<ListProps> = ({ item, isActive, onClick}) => {
             {/* Projects variant */}
             {isActive && item.id == 1 &&
                 <div className={layerClass}>
-                    <p>Projects</p>
+                    <p>Test</p>
+                    <div className={"viewAll"}>
+                        <img src={fingerGif}></img>
+                        <a href="https://github.com/ysogg">View More</a>
+                        <img src={fingerGif}></img>
+                    </div>
                 </div>
             }
 
