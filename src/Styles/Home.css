@@ -27,6 +27,13 @@ body::before {
 	animation: backgroundScroll 120s linear infinite;
 }
 
+p {
+  color: #383737;
+  font-size: 22px;
+  font-weight: 600;
+  z-index: 9999;
+}
+
 /* TODO Ensure site looks good at small widths / do @ transforms */
 
 .shadow2 {
@@ -88,9 +95,9 @@ body::before {
 
 .header p {
   color: #f2eee9;
-  font-size: 22px;
+  /* font-size: 22px;
   font-weight: 600;
-  z-index: 9999;
+  z-index: 9999; */
 }
 
 .header p a {
@@ -149,28 +156,80 @@ body::before {
 }
 
 .hiddenLayer {
-  height: 0;
+  /* height: 0; */
+  max-height: 0;
   width: 100%;
   background: #ededed;
   border-radius: 5px;
   
-  transition: height 250ms linear;
+  /* transition: height 250ms linear; */
+  /* transition: max-height 0.15s ease-out; */
 }
 
 .hiddenLayerSelected {
-  height: 400px;
+  /* height: 1200px; */
+  max-height: 5500px;
   width: 100%;
   background: #ededed;
   border-radius: 5px;
   overflow: hidden;
+  background-image: url('../Assets/test.png');
+  background-size: cover;      
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode:lighten;
 
-  transition: height 250ms linear;
+  /* transition: height 250ms linear; */
+  transition: max-height 0.25s ease-in;
+}
+
+.hiddenLayerSelected p {
+  text-align: left;
+}
+
+.thumbnails {
+  width: 400px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  transition: all 0.5s ease-in-out;
+}
+
+.thumbnails:hover {
+  transform: scale(1.03);
+}
+
+
+.dropdownCenter {
+  width: 50%;
+  text-align: center;
+  margin: auto;
+}
+
+.dropdownTitle p {
+  text-align: center;
+  font-weight: 800;
+  margin-bottom: 0;
+  padding-bottom: 2px;
+}
+
+.dropdownTitle hr {
+  margin-top: 0;
+  width: 45%;
+  border: none;  
+  height: 2px;
+  border-radius: 4px;
+
+  background: linear-gradient(to right, 
+    rgba(0, 0, 255, 0) 0%,
+    rgb(36, 35, 35) 50%,
+    rgba(0, 0, 255, 0) 100% 
+  );
 }
 
 .viewAll {
   width: 100%;
   display: flex;
-  justify-content: center; /* Horizontally center */
+  justify-content: center;
   align-items: center; 
 
   transition: height 250ms linear;

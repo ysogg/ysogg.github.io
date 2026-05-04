@@ -7,8 +7,9 @@ import ListDropdown from '../Components/ListDropdown';
 
 const ListItems = [
   { id: 1, text: "Projects" },
-  { id: 2, text: "Records" },
-  { id: 3, text: "Parks On The Air" },
+  { id: 2, text: "Cameras" },
+  { id: 3, text: "Records" },
+  { id: 4, text: "Parks On The Air" },
 ];
 
 const Home = ({...props}) => {
