@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import logo from '../../burger.gif';
 import { Link } from 'react-router';
 import { Canvas } from '@react-three/fiber'
 import { useForm } from "react-hook-form"

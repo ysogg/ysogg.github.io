@@ -43,3 +43,14 @@ body {
     transform: rotate(360deg);
   }
 }
+
+.pdf {
+  position: relative;
+  z-index: 9999;
+  text-align: center;
+}
+
+.pdf iframe {
+  width: 80%;
+  max-width: 1800px;
+}
