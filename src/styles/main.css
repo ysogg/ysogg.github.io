@@ -3,14 +3,20 @@ body {
     background-repeat: no-repeat; 
     background-size: cover;
     background-position: center center; 
-    min-height: 98vh;
+    min-height: 100vh;
+
+    scrollbar-width: none;
+    overflow: hidden;
+    -ms-overflow-style: none;
 
     font-family: "apercu", -apple-system, system, sans-serif;
 }
 
 .mainContainer {
-    max-width: 50%;
-    margin: auto;
-    height: 90%;
-    /* background-color: green; */
-}
+    
+    display: grid;
+    place-items: center;
+    height: 98vh;
+
+    /* border: 1px solid black; */
+    }
