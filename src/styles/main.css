@@ -192,6 +192,12 @@ a:hover {
     margin-top: 16px;
 }
 
+.avatarLink {
+  width: 110px !important;
+  height: 110px !important;
+  position: absolute;
+}
+
 .avatarFrame {
   width: 110px !important;
   height: 110px !important;
