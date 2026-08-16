@@ -1,0 +1,42 @@
+
+.fullCell {
+    grid-column: span 4;
+    grid-row: span 3;
+}
+
+.leftColCell {
+    grid-column: span 1;
+    grid-row: span 2;
+}
+
+.primaryCell {
+    grid-column: span 3;
+    grid-row: span 2;
+}
+
+.maxWidthCell {
+    grid-column: span 4;
+}
+
+.medCell {
+    grid-column: span 3;
+}
+
+.innerGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 250px); 
+    gap: 16px;
+
+    height: 90%;
+    /* border: 1px solid black; */
+
+    transform: translateY(100vh);
+    visibility: hidden;
+    transition: transform 0.6s ease, visibility 0.6s;
+    will-change: transform;
+}
+
+#innerGrid.move-up {
+    transform: translateY(0);
+    visibility: visible;
+}

@@ -6,46 +6,112 @@
 
     <link rel="stylesheet" href="./src/styles/main.css">
     <link rel="stylesheet" href="./src/styles/glass.css">
+    <link rel="stylesheet" href="./src/styles/grid.css">
 
     <script src="./src/scripts/logo.js"></script>
+    <script src="./src/scripts/spotify.js"></script>
+    <script src="./src/scripts/cursor.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="AJ's awesome website it's so sick click my link!!!"
     />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
     <title>1000 Bugs</title>
   </head>
   <body>
     <div class="mainContainer">
-      <img id="logo" style="scale:0.5; max-width:1500px;" src="./src/assets/logo_2.svg"/>
-      <!-- <div style="z-index: 1; position: relative; width:100%; height:100px;" class="glass">
-        <img style="z-index: 99; position: relative; scale:0.15;" src="./src/assets/logo_2.svg"/>
-        <img style="scale:0.05;" src="./src/assets/bug_logo_combined_rounded.png"/>
-        <p style="color: white;">Test!</p>
+      <img id="logo" class="spinAnimation" src="./src/assets/logo_2.svg"/>
+
+      <!-- The hidden custom cursor tracker -->
+      <div id="custom-gif-cursor">
+        <img src="./src/assets/beckon_small.gif" alt="Cursor">
       </div>
-      <div style="float:left; width:49%; height:150px;" class="glass">
-        <p style="color: white;">Test!</p>
+
+      <div id="innerGrid" class="innerGrid glass">
+        <div class="container maxWidthCell">
+          <h1>Bugdates</h1>
+          <hr>
+          <div class="innerBox" style="height: 250px;">
+            <img style="width: 35%; float: left;" src="https://img.itch.zone/aW1hZ2UyL2phbS80MDkyMDMvMjYwMDIzMzcucG5n/original/%2FpWGI9.png">
+            <p style="float: left;">We are currently participating in <a href="https://itch.io/jam/brackeys-16">Brackeys Game Jam 2026.2</a>!
+          </div>
+        </div>
+
+        <div class="container maxWidthCell">
+          <h1>About Us</h1>
+          <hr>
+          <div class="innerBox" style="height: 300px;">
+            <p>1000 Bugs is an indie game dev team based primarily out of Ontario, Canada.</p>
+            <p>We have games, unlimited games, but no games :( </p>
+            <br>
+            <br>
+            <p>Check out our <a href="https://1000bugs.itch.io/">Itch.io page</a>. I lied.. we have 1 games</p>
+            <p><br><br><br><br><br>This is the only website ever... Check back soon for more updates!</p> 
+          </div> 
+        </div>
+
+        <div id="teamContainer" class="container maxWidthCell">
+          <h1>Meet Our Little Bugs</h1>
+          <hr>
+          <div class="innerBox" style="height: 300px;">
+            <div style="margin-top: 30px;" class="teamInfo">
+
+              <div class="member">
+                <img src="./src/assets/teamMembers/AJ.jpg"/>
+                <img class="avatarFrame" src="./src/assets/frames/sketch_frame.png"/>
+                <h2><a href="https://github.com/ysogg">Alex Busch</a></h2>
+                <div>
+                  <ul>Programmer</ul>
+                  <ul>Art</ul>
+                </div>
+              </div>
+
+              <div class="member">
+                <img src="./src/assets/teamMembers/zander.jpg"/>
+                <img class="avatarFrame" src="./src/assets/frames/award_frame.png"/>
+                <h2><a href="https://en.wikipedia.org/wiki/Blue-footed_booby">Zander</a></h2>
+                <div>
+                  <ul>Programmer</ul>
+                  <ul>Audio</ul>
+                  <ul>Art</ul>
+                </div>
+              </div>
+
+              <div class="member">
+                <img src="./src/assets/teamMembers/jon.jpg"/>
+                <img class="avatarFrame" src="./src/assets/frames/ropes_frame.png"/>
+                <h2><a href="https://staticvalley.github.io/">Jon</a></h2>
+                <div>
+                  <ul>Programmer</ul>
+                </div>
+              </div>
+
+              <div class="member">
+                <img src="./src/assets/teamMembers/evan.jpg"/>
+                <img class="avatarFrame" src="./src/assets/frames/hearts_frame.png"/>
+                <h2><a href="https://github.com/Evan4456">Evan Long</a></h2>
+                <div>
+                  <ul>Programmer</ul>
+                </div>
+              </div>
+
+              <div class="member">
+                <img src="./src/assets/teamMembers/anya.jpg"/>
+                <img class="avatarFrame" src="./src/assets/frames/lazy_cat_frame.png"/>
+                <h2><a href="https://oko.moe">oko</a></h2>
+                <div>
+                  <ul>Programmer</ul>
+                </div>
+              </div>
+          </div>
+        </div>
       </div>
-      <div style="float: right; width:49%; height:150px;" class="glass">
-        <p style="color: white;">Test!</p>
-      </div> -->
+      <div class="container maxWidthCell">
+        <p style="text-align: center; margin-top: 50px; margin-bottom: 0px;">© 2026 1000 Bugs</p>
+      </div>
+      
     </div>
   </body>
 </html>
