@@ -16,3 +16,9 @@
     -webkit-backdrop-filter: blur(2.9px);
     transition: backdrop-filter 0.01s 0.6s, -webkit-backdrop-filter 0.01s 0.6s;
 }
+
+#innerGrid.move-up .innerBox {
+    backdrop-filter: blur(7.9px);
+    -webkit-backdrop-filter: blur(7.9px);
+    transition: backdrop-filter 0.01s 0.6s, -webkit-backdrop-filter 0.01s 0.6s;
+}
