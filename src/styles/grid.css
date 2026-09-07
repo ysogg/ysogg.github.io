@@ -1,34 +1,14 @@
-
-.fullCell {
-    grid-column: span 4;
-    grid-row: span 3;
-}
-
-.leftColCell {
-    grid-column: span 1;
-    grid-row: span 2;
-}
-
-.primaryCell {
-    grid-column: span 3;
-    grid-row: span 2;
-}
-
-.maxWidthCell {
-    grid-column: span 4;
-}
-
-.medCell {
-    grid-column: span 3;
-}
-
 .innerGrid {
     display: grid;
-    grid-template-columns: repeat(4, 250px); 
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(120px, auto);
+    grid-auto-flow: dense;
     gap: 16px;
 
-    height: 90%;
-    /* border: 1px solid black; */
+    width: min(90vw, 1000px);
+    margin: 15px auto 0;
+    padding: 10px;
+    box-sizing: border-box;
 
     transform: translateY(100vh);
     visibility: hidden;
@@ -39,4 +19,27 @@
 #innerGrid.move-up {
     transform: translateY(0);
     visibility: visible;
+}
+
+.innerGrid > .container {
+    margin: 0;
+    max-width: none;
+}
+
+.col-span-0 { grid-column: span 0.5; }
+.col-span-1 { grid-column: span 1; }
+.col-span-2 { grid-column: span 2; }
+.col-span-3 { grid-column: span 3; }
+.col-span-4 { grid-column: span 4; }
+
+.row-span-1 { grid-row: span 1; }
+.row-span-2 { grid-row: span 2; }
+.row-span-3 { grid-row: span 3; }
+
+/* Use inside a spanning cell to lay out smaller cells within it using the same column/row span classes. */
+.nestedGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: minmax(60px, auto);
+    gap: 8px;
 }

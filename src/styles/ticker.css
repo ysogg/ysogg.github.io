@@ -1,0 +1,45 @@
+/* 1. Hide overflow and style the main banner background */
+.ticker-wrap {
+    width: 100%;
+    overflow: hidden; /* Hides horizontal scrollbar */
+    /* background: rgba(247, 72, 67, 0.7); */
+    margin-top: 20px;
+    /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); */
+}
+
+/* 2. The track holding both identical blocks of text */
+.ticker-track {
+    /* background: rgba(247, 72, 67, 0.2); */
+    display: flex;
+    width: max-content;
+    animation: ticker-scroll 25s linear infinite; /* Adjust time to change speed */
+}
+
+/* Pause the scrolling animation when hovered */
+.ticker-track:hover {
+    animation-play-state: paused;
+}
+
+/* 3. Style groups of items */
+.ticker-items {
+    display: flex;
+    white-space: nowrap; /* Prevents text from wrapping to a new line */
+}
+
+/* 4. Individual news items styling */
+.ticker-item {
+    color: rgba(247, 72, 67, 1);
+    font-family: sans-serif;
+    font-size: 1.5rem;
+    padding: 0 40px; /* Space between news items */
+}
+
+/* 5. The keyframes for the seamless horizontal scroll */
+@keyframes ticker-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%); /* Moves exactly halfway so the loop repeats invisibly */
+    }
+}

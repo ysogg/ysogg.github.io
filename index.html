@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./src/styles/main.css">
     <link rel="stylesheet" href="./src/styles/glass.css">
     <link rel="stylesheet" href="./src/styles/grid.css">
+    <link rel="stylesheet" href="./src/styles/ticker.css">
 
     <script src="./src/scripts/logo.js"></script>
     <script src="./src/scripts/spotify.js"></script>
@@ -20,7 +21,7 @@
     />
     <title>1000 Bugs</title>
   </head>
-  <body>
+  <body class="hideOverflow">
     <div class="mainContainer">
       <img id="logo" class="spinAnimation" src="./src/assets/logo_2.svg"/>
 
@@ -29,33 +30,45 @@
         <img src="./src/assets/beckon_small.gif" alt="Cursor">
       </div>
 
-      <div id="innerGrid" class="innerGrid glass">
-        <div class="container maxWidthCell">
-          <h1>Bugdates</h1>
+      <div id="innerGrid" class="innerGrid innerGridGlass">
+        <div class="container glass col-span-1 row-span-2">
+          <h1>About Us</h1>
           <hr>
-          <div class="innerBox" style="height: 250px;">
-            <img style="width: 35%; float: left;" src="https://img.itch.zone/aW1hZ2UyL2phbS80MDkyMDMvMjYwMDIzMzcucG5n/original/%2FpWGI9.png">
-            <p style="float: left;">We are currently participating in <a href="https://itch.io/jam/brackeys-16">Brackeys Game Jam 2026.2</a>!
+          <div class="innerBox" style="min-height: 300px;">
+            <ul style="padding-left: 30px; margin-right: 5px;">
+              <li>1000 Bugs is an indie game dev team primarily based out of Ontario, Canada.</li>
+              <br>
+              <li>We have games, unlimited games, but no games :( </li>
+              <br>
+              <li>I lied.. we have 2 games... Check out our <a href="https://1000bugs.itch.io/">Itch.io page</a>!</li>
+              <br>
+              <li>This is the only website ever... Check back soon for more updates!</li>
+            </ul>
           </div>
         </div>
 
-        <div class="container maxWidthCell">
-          <h1>About Us</h1>
+        <div class="container glass col-span-3 row-span-2">
+          <h1>Bugdates</h1>
           <hr>
-          <div class="innerBox" style="height: 300px;">
-            <p>1000 Bugs is an indie game dev team primarily based out of Ontario, Canada.</p>
-            <p>We have games, unlimited games, but no games :( </p>
-            <br>
-            <br>
-            <p>Check out our <a href="https://1000bugs.itch.io/">Itch.io page</a>. I lied.. we have 1 games</p>
-            <p><br><br><br><br><br>This is the only website ever... Check back soon for more updates!</p> 
-          </div> 
+          <div class="nestedGrid">
+            <div class="container nestedBorder col-span-1 row-span-1">
+              <img style="width: 90%; display: block; margin: auto;" src="https://img.itch.zone/aW1hZ2UyL2phbS80MDkyMDMvMjYwMDIzMzcucG5n/original/%2FpWGI9.png">
+            </div>
+            <div class="container col-span-1 row-span-2"  style="height: 100%;">
+              <div class="innerBox">
+                <h3 style="margin-left: 5px;">Game Jam! Game Jam!</h3>
+                <p>Check out our submission to <a href="https://itch.io/jam/brackeys-16">Brackeys Game Jam 2026.2</a>!</p>
+                <br>
+                <p>It's a mix of the card game War with some extra mechanics. Your goal is to cheat your opponent without them noticing. Determine how far you're pushing it by keeping an eye on their suspicious faces. Try and calm them with small talk and various items from the shop!</p>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div id="teamContainer" class="container maxWidthCell">
+        <div id="teamContainer" class="container glass col-span-4 row-span-2">
           <h1>Meet Our Little Bugs</h1>
           <hr>
-          <div class="innerBox" style="height: 300px;">
+          <div class="innerBox" style="min-height: 300px;">
             <div style="margin-top: 35px;" class="teamInfo">
 
               <div class="member">
@@ -85,6 +98,7 @@
                 <h2><a href="https://staticvalley.github.io/">Jon</a></h2>
                 <div>
                   <ul>Programmer</ul>
+                  <ul>Art</ul>
                 </div>
               </div>
 
@@ -102,14 +116,41 @@
                 <a class="avatarLink" href="https://oko.moe"><img class="avatarFrame" src="./src/assets/frames/lazy_cat_frame.png"/></a>
                 <h2><a href="https://oko.moe">oko</a></h2>
                 <div>
-                  <ul>Programmer</ul>
+                  <ul>Art</ul>
                 </div>
               </div>
           </div>
         </div>
       </div>
-      <div class="container maxWidthCell">
-        <p style="text-align: center; margin-top: 50px; margin-bottom: 0px;">© 2026 1000 Bugs</p>
+      
+      <div class="container glass col-span-4 row-span-1">
+          <div class="ticker-wrap">
+            <div class="ticker-track">
+
+              <div class="ticker-items">
+                <span class="ticker-item" style="margin-top: 9px">OH MY GOD THE WEBSITE IS ON FIRE !!!</span>
+                <span class="ticker-item"><img style="height: 50%;  align-self:center; margin-top: 5px;" src="./src/assets/alarm.gif" /> The 1000 Bugs media empire is growing... Far too quickly to control... <img style="height: 50%;  align-self:center; margin-top: 5px;" src="./src/assets/alarm.gif" /></span>
+                <span class="ticker-item" style="margin-top: 9px">Watch out for Zander's "Scary Facility"</span>
+                <span class="ticker-item"><img style="height: 50%;  align-self:center; margin-top: 5px;" src="./src/assets/alarm.gif" /> Re-share this website to spread awareness !! <img style="height: 50%;  align-self:center; margin-top: 5px;" src="./src/assets/alarm.gif" /></span>
+                <span class="ticker-item" style="margin-top: 9px">I love one thousand bugs -The whole freakin' world</span>
+              </div>
+
+              <div class="ticker-items" aria-hidden="true">
+                <span class="ticker-item" style="margin-top: 9px">OH MY GOD THE WEBSITE IS ON FIRE !!!</span>
+                <span class="ticker-item"><img style="height: 50%;  align-self:center; margin-top: 5px;" src="./src/assets/alarm.gif" /> The 1000 Bugs media empire is growing... Far too quickly to control... <img style="height: 50%;  align-self:center; margin-top: 5px;" src="./src/assets/alarm.gif" /></span>
+                <span class="ticker-item" style="margin-top: 9px">Watch out for Zander's "Scary Facility"</span>
+                <span class="ticker-item"><img style="height: 50%;  align-self:center; margin-top: 5px;" src="./src/assets/alarm.gif" /> Re-share this website to spread awareness !! <img style="height: 50%;  align-self:center; margin-top: 5px;" src="./src/assets/alarm.gif" /></span>
+                <span class="ticker-item" style="margin-top: 9px">I love one thousand bugs -The whole freakin' world</span>
+              </div>
+            </div>
+          </div>
+
+          <img style="width: 100%;" src="./src/assets/flames.gif"/>
+        </div>
+
+      </div>
+      <div id="copyright" class="container hidden">
+        <p style="text-align: center;">© 2026 1000 Bugs</p>
       </div>
       
     </div>

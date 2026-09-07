@@ -1,17 +1,18 @@
 body {
     background-image: url("../assets/background_clean.png");
-    background-repeat: no-repeat; 
+    background-repeat: no-repeat;
     background-size: cover;
-    background-position: center center; 
+    background-attachment: fixed;
+    background-position: center center;
     min-height: 100vh;
-
-    scrollbar-width: none;
-    overflow: hidden;
-    -ms-overflow-style: none;
 
     font-family: "apercu", -apple-system, system, sans-serif;
     color: rgb(48, 40, 40);
     font-weight: 600;
+}
+
+.hideOverflow {
+  overflow: hidden;
 }
 
 a {
@@ -36,34 +37,31 @@ hr {
   border: none;
   height: 2px;
   background: linear-gradient(to right, #333 0%, transparent 100%);
-  max-width: 50%;
+  max-width: 40%;
+  min-width: 175px;
 }
 
 .mainContainer {
     display: grid;
     place-items: center;
-    height: 98vh;
+    min-height: 98vh;
     position: relative;
 }
 
 .innerBox {
-  backdrop-filter: none;
+  /* backdrop-filter: none;
   -webkit-backdrop-filter: none;
   box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
-  border: 1px solid rgb(188, 197, 229);
+  border: 1px solid rgb(188, 197, 229); */
 }
 
 .innerBox p {
-  margin-left: 10px;
+  margin: 5px;
 }
 
 .move-up {
     transform: translateY(-100px);
-}
-
-:root {
-    --inner-grid-width: 832px; /* 200px + 400px + 200px + 2 * 16px gap */
 }
 
 #logo {
@@ -74,7 +72,7 @@ hr {
     width: 700px;
     translate: -50% -50%;
     transform-origin: center;
-    transition: scale 0.6s ease, translate 0.6s ease, transform-origin 0.6s ease;
+    transition: scale 0.6s ease, translate 0.6s ease, rotate 0.6s ease, top 0.6s ease, left 0.6s ease;
 }
 
 #logo:hover {
@@ -83,9 +81,10 @@ hr {
 }
 
 #logo.logoTopLeft {
-    translate: calc(-1 * (var(--inner-grid-width) / 2) - 185px) calc(-32.5vh - 205px);
-    transform-origin: top left; 
     scale: 0.35;
+    rotate: -10deg;
+    translate: 0 0;
+    transform-origin: top left;
 }
 
 .spinAnimation {
@@ -149,8 +148,17 @@ a:hover {
 /* Teamlist */
 .container {
   margin: auto;
-  width: 900px;
-  /* background-color: rgba(255, 255, 255, 0.25); */
+  width: 100%;
+  max-width: 900px;
+  box-sizing: border-box;
+}
+
+.container h1 {
+  margin-left: 15px;
+}
+
+.container hr {
+  margin-left: 15px;
 }
 
 .teamInfo {
@@ -159,7 +167,7 @@ a:hover {
   width: 100%;
   justify-content: center;
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .member {
